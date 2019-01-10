@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PublisherRoutingModule } from './publisher-routing.module';
+import { MaterialModule } from '../material.module';
+
 import { PublisherHomeComponent } from './publisher-home/publisher-home.component';
 import { PublisherDashboardComponent } from './publisher-dashboard/publisher-dashboard.component';
 import { PublisherProfileEditComponent } from './publisher-profile-edit/publisher-profile-edit.component';
@@ -28,6 +30,7 @@ import { PublisherSubscribersComponent } from './publisher-subscribers/publisher
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     PublisherRoutingModule
   ]
 })

@@ -9,6 +9,8 @@ import { PublisherPublishAlbumComponent } from './publisher-publish-album/publis
 import { PublisherTrackListComponent } from './publisher-track-list/publisher-track-list.component';
 import { PublisherAlbumListComponent } from './publisher-album-list/publisher-album-list.component';
 import { PublisherSubscribersComponent } from './publisher-subscribers/publisher-subscribers.component';
+import { PublisherTrackReviewsComponent } from './publisher-track-reviews/publisher-track-reviews.component';
+import { PublisherAlbumReviewsComponent } from './publisher-album-reviews/publisher-album-reviews.component';
 
 import { AuthGuard } from '../core/guards/auth.guard';
 
@@ -24,7 +26,9 @@ const routes: Routes = [
           { path: 'publish-track', component: PublisherPublishTrackComponent },
           { path: 'publish-album', component: PublisherPublishAlbumComponent },
           { path: 'track-list', component: PublisherTrackListComponent },
+          { path: 'track-review', component: PublisherTrackReviewsComponent },
           { path: 'album-list', component: PublisherAlbumListComponent },
+          { path: 'album-review', component: PublisherAlbumReviewsComponent },
           { path: 'subscribers', component: PublisherSubscribersComponent },
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ]

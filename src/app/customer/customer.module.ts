@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CustomerRoutingModule } from './customer-routing.module';
+import { MaterialModule } from '../material.module';
+
 import { CustomerHomeComponent } from './customer-home/customer-home.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { CustomerProfileEditComponent } from './customer-profile-edit/customer-profile-edit.component';
@@ -32,6 +34,7 @@ import { CustomerMusicPlayerComponent } from './customer-music-player/customer-m
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     CustomerRoutingModule
   ]
 })
