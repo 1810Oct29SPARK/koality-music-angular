@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from '../material.module';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -23,7 +27,12 @@ import { LandingComponent } from './landing/landing.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     CoreRoutingModule
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class CoreModule { }
