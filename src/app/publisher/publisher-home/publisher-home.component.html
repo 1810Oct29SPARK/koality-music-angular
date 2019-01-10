@@ -1,3 +1,14 @@
 <p>
   publisher-home works!
 </p>
+<ul>
+  <li><a [routerLink]="[ 'dashboard' ]" routerLinkActive="active">Dashboard</a></li>
+  <li><a [routerLink]="[ 'profile-edit' ]" routerLinkActive="active">Profile Edit</a></li>
+  <li><a [routerLink]="[ 'publish-track' ]" routerLinkActive="active">Publish Track</a></li>
+  <li><a [routerLink]="[ 'publish-album' ]" routerLinkActive="active">Publish Album</a></li>
+  <li><a [routerLink]="[ 'track-list' ]" routerLinkActive="active">Track List</a></li>
+  <li><a [routerLink]="[ 'album-list' ]" routerLinkActive="active">Album List</a></li>
+  <li><a [routerLink]="[ 'subscribers' ]" routerLinkActive="active">Subscribers</a></li>
+</ul>
+
+<router-outlet></router-outlet>

@@ -1,3 +1,14 @@
 <p>
   customer-home works!
 </p>
+<ul>
+  <li><a [routerLink]="[ 'dashboard' ]" routerLinkActive="active">Dashboard</a></li>
+  <li><a [routerLink]="[ 'profile-edit' ]" routerLinkActive="active">Profile Edit</a></li>
+  <li><a [routerLink]="[ 'store-front' ]" routerLinkActive="active">Store Front</a></li>
+  <li><a [routerLink]="[ 'track-list' ]" routerLinkActive="active">Track List</a></li>
+  <li><a [routerLink]="[ 'album-list' ]" routerLinkActive="active">Album List</a></li>
+  <li><a [routerLink]="[ 'playlist-list' ]" routerLinkActive="active">Playlist List</a></li>
+  <li><a [routerLink]="[ 'music-player' ]" routerLinkActive="active">Music Player</a></li>
+</ul>
+
+<router-outlet></router-outlet>
