@@ -6,8 +6,18 @@ import {
   MatCheckboxModule,
   MatMenuModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatInputModule,
+  MatSidenavModule,
+  MatDividerModule,
+  MatListModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatTabsModule,
+  MatGridListModule
 } from '@angular/material';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [],
@@ -17,7 +27,16 @@ import {
     MatCheckboxModule,
     MatMenuModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatGridListModule,
+    MDBBootstrapModule
   ],
   exports: [
     MatButtonModule,
@@ -25,7 +44,16 @@ import {
     MatCheckboxModule,
     MatMenuModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatGridListModule,
+    MDBBootstrapModule
   ]
 })
 export class MaterialModule { }
