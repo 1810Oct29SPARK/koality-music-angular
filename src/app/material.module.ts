@@ -24,7 +24,9 @@ import {
   MatButton,
   MatRadioGroup,
   MatRadioButton,
-  MatTab
+  MatTab,
+  MatGridList,
+  MatGridTile
 } from '@angular/material';
 
 @NgModule({
@@ -46,7 +48,8 @@ import {
     MatGridListModule,
     MatButtonToggleModule,
     MatSlideToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatGridListModule
   ],
   exports: [
     MatButtonModule,
@@ -69,7 +72,9 @@ import {
     MatButton,
     MatRadioGroup,
     MatRadioButton,
-    MatTab
+    MatTab,
+    MatGridList,
+    MatGridTile
   ]
 })
 export class MaterialModule { }

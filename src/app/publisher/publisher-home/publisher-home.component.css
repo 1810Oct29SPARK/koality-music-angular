@@ -1,3 +1,108 @@
 .active {
-  color: darkred;
+  color: white;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: #000000;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#nav-div {
+  float: left;
+  margin-top: 5%;
+}
+
+mat-toolbar {
+  background-color: black;
+  top: 15%;
+}
+
+mat-nav-list {
+  background-color: #000000;
+  color: #c7c7c7;
+  height: 60%;
+}
+
+mat-sidnav {
+  background-color: #000000;
+  color: #c7c7c7;
+}
+
+mat-list-item {
+  color: white;
+}
+
+.content {
+  background-color: #000000;
+  color: #c7c7c7;
+}
+
+.content1 {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2.5em;
+}
+
+mat-toolbar {
+  background-color: #000000;
+}
+
+mat-drawer-inner-container {
+  width: 25%;
+  margin: 25%;
+}
+
+#sidnav2 {
+  height: 20%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+#top-nav {
+  top: 5%;
+}
+
+#avatar {
+  font-size: 100px;
+  padding: 15%;
+}
+
+.name {
+  color: white;
+  text-align: center;
+  font-size: 32px;
+  margin-top: -30%;
+  font-family: "oxygen";
+}
+
+.name2 {
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-family: "oxygen";
+}
+
+.small-name {
+  display: inline-block;
+  margin: 0 3px;
+}
+
+.logout {
+  margin-top: 15%;
 }
