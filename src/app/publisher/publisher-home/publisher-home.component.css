@@ -71,7 +71,7 @@ mat-drawer-inner-container {
 #sidnav2 {
   height: 20%;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #top-nav {
@@ -105,4 +105,9 @@ mat-drawer-inner-container {
 
 .logout {
   margin-top: 15%;
+}
+
+i {
+  display: inline-block;
+  margin-left: 10px;
 }

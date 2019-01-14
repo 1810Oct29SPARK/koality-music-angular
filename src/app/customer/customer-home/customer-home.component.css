@@ -109,3 +109,8 @@ mat-drawer-inner-container {
 .logout {
   margin-top: 15%;
 }
+
+i {
+  display: inline-block;
+  margin-left: 10px;
+}

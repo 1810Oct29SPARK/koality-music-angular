@@ -1,12 +1,15 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-    <mat-toolbar id="sidnav2" class="content1">
-      <img style="display: inline-block; margin: 20px auto;" src="https://image.flaticon.com/icons/png/512/123/123164.png"
-        width="64" height="64" alt="profile">
-    </mat-toolbar>
-    <h2 class="name"><span class="small-name">Jane</span><span class="small-name">Smith</span></h2>
-    <h3 class="name2">Customer</h3>
+    <div class="flex-col-center">
+      <mat-toolbar id="sidnav2" class="content1">
+        <img style="display: inline-block; margin: 20px auto;" src="https://image.flaticon.com/icons/png/512/123/123164.png"
+          width="64" height="64" alt="profile">
+      </mat-toolbar>
+      <br>
+      <h2 class="name"><span class="small-name">Jane</span><span class="small-name">Smith</span></h2>
+      <h3 class="name2">Customer</h3>
+    </div>
     <mat-nav-list>
       <i id="nav-div" class="material-icons" [routerLink]="[ 'dashboard' ]" mat-list-item href="" routerLinkActive="active">home</i>
       <a class="content" [routerLink]="[ 'dashboard' ]" mat-list-item href="" routerLinkActive="active">Dashboard</a>
