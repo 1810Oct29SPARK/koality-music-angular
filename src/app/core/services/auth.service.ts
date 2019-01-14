@@ -49,11 +49,43 @@ export class AuthService {
   }
 
   loginPublisher(requestBody: string) {
-    // code
+
+    this.http.post<HttpResponse<Publisher>>(AuthService.baseUrl + 'login-publisher', requestBody, { observe: 'response' })
+      .subscribe(response => {
+        if (response.ok) {
+          this.currentPublisherId = parseInt(response.body['publisherId'], 10);
+          this.router.navigate(['/publisher']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      });
+
   }
 
   loginCustomer(requestBody: string) {
-    // code
+
+    this.http.post<HttpResponse<Customer>>(AuthService.baseUrl + 'login-customer', requestBody, { observe: 'response' })
+      .subscribe(response => {
+        if (response.ok) {
+          this.currentCustomerId = parseInt(response.body['customerId'], 10);
+          this.router.navigate(['/customer']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      });
+
+  }
+
+  logout() {
+    this.http.get<string>(AuthService.baseUrl + 'logout')
+      .subscribe(response => {
+        console.log(response);
+        this.currentCustomer = null;
+        this.currentPublisher = null;
+        this.currentCustomerId = 0;
+        this.currentPublisherId = 0;
+        this.router.navigate(['/']);
+      });
   }
 
 }

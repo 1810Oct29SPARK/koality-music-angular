@@ -27,7 +27,7 @@
       <a class="content" [routerLink]="[ 'music-player' ]" mat-list-item href="" routerLinkActive="active">Music Player</a>
       <div class="logout">
         <i id="nav-div" class="material-icons" [routerLink]="[ '' ]" mat-list-item href="" routerLinkActive="active">power_settings_new</i>
-        <a class="content" [routerLink]="[ '' ]" mat-list-item href="" routerLinkActive="active">Logout</a>
+        <a (click)="logoutCustomer()" class="content" mat-list-item href="" routerLinkActive="active">Logout</a>
       </div>
     </mat-nav-list>
   </mat-sidenav>

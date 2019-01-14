@@ -29,7 +29,7 @@
       <a class="content" [routerLink]="[ 'subscribers' ]" mat-list-item href="" routerLinkActive="active">Subscribers</a>
       <div class="logout">
         <i id="nav-div" class="material-icons" [routerLink]="[ '' ]" mat-list-item href="" routerLinkActive="active">power_settings_new</i>
-        <a class="content" [routerLink]="[ '' ]" mat-list-item href="" routerLinkActive="active">Logout</a>
+        <a (click)="logoutPublisher()" class="content" mat-list-item href="" routerLinkActive="active">Logout</a>
       </div>
     </mat-nav-list>
   </mat-sidenav>
