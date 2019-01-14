@@ -14,10 +14,18 @@ import {
   MatFormFieldModule,
   MatSelectModule,
   MatTabsModule,
-  MatGridListModule
+  MatGridListModule,
+  MatButtonToggleModule,
+  MatSlideToggleModule,
+  MatRadioModule,
+  MatButtonToggleGroup,
+  MatButtonToggle,
+  MatSlideToggle,
+  MatButton,
+  MatRadioGroup,
+  MatRadioButton,
+  MatTab
 } from '@angular/material';
-
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [],
@@ -36,7 +44,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatSelectModule,
     MatTabsModule,
     MatGridListModule,
-    MDBBootstrapModule
+    MatButtonToggleModule,
+    MatSlideToggleModule,
+    MatRadioModule
   ],
   exports: [
     MatButtonModule,
@@ -53,7 +63,13 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatSelectModule,
     MatTabsModule,
     MatGridListModule,
-    MDBBootstrapModule
+    MatButtonToggleGroup,
+    MatButtonToggle,
+    MatSlideToggle,
+    MatButton,
+    MatRadioGroup,
+    MatRadioButton,
+    MatTab
   ]
 })
 export class MaterialModule { }

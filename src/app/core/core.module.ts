@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from '../material.module';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -29,6 +30,7 @@ import { LandingComponent } from './landing/landing.component';
     NgbModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MDBBootstrapModule.forRoot(),
     CoreRoutingModule
   ],
   exports: [
