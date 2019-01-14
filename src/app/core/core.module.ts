@@ -22,6 +22,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
 
+import { AuthService } from './services/auth.service';
+
 @NgModule({
   declarations: [
     PageNotFoundComponent,
@@ -51,6 +53,9 @@ import { LandingComponent } from './landing/landing.component';
     ButtonsModule,
     CollapseModule,
     MdbTablePaginationComponent
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class CoreModule { }

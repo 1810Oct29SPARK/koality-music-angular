@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
+import { AuthService } from '../services/auth.service';
 import { GlobalVars } from '../../shared/global-vars';
 
 @Component({
@@ -15,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   musicGenres = GlobalVars.musicGenres;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public router: Router, public formBuilder: FormBuilder, public authService: AuthService) {
 
     this.publisherRegisterForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -42,14 +44,15 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  customerRegister() {
-    console.log('customer register form submitted');
-    console.log(this.customerRegisterForm.value);
-  }
-
   publisherRegister() {
     console.log('publisher register form submitted');
     console.log(this.publisherRegisterForm.value);
+    this.authService.registerPublisher(JSON.stringify(this.publisherRegisterForm.value));
+  }
+
+  customerRegister() {
+    console.log('customer register form submitted');
+    console.log(this.customerRegisterForm.value);
   }
 
 }
