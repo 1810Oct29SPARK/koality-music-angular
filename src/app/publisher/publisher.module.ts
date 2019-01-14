@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PublisherRoutingModule } from './publisher-routing.module';
 import { MaterialModule } from '../material.module';
@@ -31,6 +32,8 @@ import { PublisherSubscribersComponent } from './publisher-subscribers/publisher
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     PublisherRoutingModule
   ]
 })

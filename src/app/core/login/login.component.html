@@ -6,7 +6,7 @@
         <mat-icon>whatshot</mat-icon>
         <span style="display: inline-block; margin-left: 10px;">Publisher</span>
       </ng-template>
-      <form (submit)="publisherLogin()" [formGroup]="publisherLoginForm" class="text-center border border-light p-5 login-form">
+      <form (ngSubmit)="publisherLogin()" [formGroup]="publisherLoginForm" class="text-center border border-light p-5 login-form">
         <p class="h4 mb-4">Login as publisher</p>
         <input formControlName="username" type="text" class="form-control mb-4" placeholder="Username">
         <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
@@ -27,7 +27,7 @@
         <mat-icon>spa</mat-icon>
         <span style="display: inline-block; margin-left: 10px;">Customer</span>
       </ng-template>
-      <form (submit)="customerLogin()" [formGroup]="customerLoginForm" class="text-center border border-light p-5 login-form">
+      <form (ngSubmit)="customerLogin()" [formGroup]="customerLoginForm" class="text-center border border-light p-5 login-form">
         <p class="h4 mb-4">Login as customer</p>
         <input formControlName="username" type="text" class="form-control mb-4" placeholder="Username">
         <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
@@ -43,4 +43,10 @@
       </form>
     </mat-tab>
   </mat-tab-group>
+  <div class="flex-row-center">
+    <button mat-icon-button routerLink="../">
+      <mat-icon>undo</mat-icon>
+    </button>
+  </div>
+  <div class="gap-20"></div>
 </section>

@@ -6,7 +6,7 @@
         <mat-icon>whatshot</mat-icon>
         <span style="display: inline-block; margin-left: 10px;">Publisher</span>
       </ng-template>
-      <form [formGroup]="publisherRegisterForm" (submit)="publisherRegister()" class="text-center border border-light p-5 register-form">
+      <form [formGroup]="publisherRegisterForm" (ngSubmit)="publisherRegister()" class="text-center border border-light p-5 register-form">
         <p class="h4 mb-4">Register as publisher</p>
         <div class="form-row mb-4">
           <div class="col">
@@ -36,7 +36,7 @@
         <mat-icon>spa</mat-icon>
         <span style="display: inline-block; margin-left: 10px;">Customer</span>
       </ng-template>
-      <form [formGroup]="customerRegisterForm" (submit)="customerRegister()" class="text-center border border-light p-5 register-form">
+      <form [formGroup]="customerRegisterForm" (ngSubmit)="customerRegister()" class="text-center border border-light p-5 register-form">
         <p class="h4 mb-4">Register as customer</p>
         <div class="form-row mb-4">
           <div class="col">
@@ -66,4 +66,11 @@
       </form>
     </mat-tab>
   </mat-tab-group>
+  <div class="flex-row-center">
+    <button mat-icon-button routerLink="../">
+      <mat-icon>undo</mat-icon>
+    </button>
+  </div>
+  <br>
+  <div class="gap-20"></div>
 </section>

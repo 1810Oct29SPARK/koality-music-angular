@@ -34,7 +34,7 @@ import { LandingComponent } from './landing/landing.component';
     CoreRoutingModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ]
 })
 export class CoreModule { }
