@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
   customerRegister() {
     console.log('customer register form submitted');
     console.log(this.customerRegisterForm.value);
+    this.authService.registerCustomer(JSON.stringify(this.customerRegisterForm.value));
   }
 
 }

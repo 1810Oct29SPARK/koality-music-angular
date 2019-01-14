@@ -24,14 +24,28 @@ export class AuthService {
 
     this.http.post<HttpResponse<number>>(AuthService.baseUrl + 'register-publisher', requestBody, { observe: 'response' })
       .subscribe(response => {
-        this.currentPublisherId = parseInt(response.body.toString(), 10);
-        this.router.navigate(['/publisher']);
+        if (response.ok) {
+          this.currentPublisherId = parseInt(response.body.toString(), 10);
+          this.router.navigate(['/publisher']);
+        } else {
+          this.router.navigate(['/register']);
+        }
       });
 
   }
 
   registerCustomer(requestBody: string) {
-    // code
+
+    this.http.post<HttpResponse<number>>(AuthService.baseUrl + 'register-customer', requestBody, { observe: 'response' })
+      .subscribe(response => {
+        if (response.ok) {
+          this.currentCustomerId = parseInt(response.body.toString(), 10);
+          this.router.navigate(['/customer']);
+        } else {
+          this.router.navigate(['/register']);
+        }
+      });
+
   }
 
   loginPublisher(requestBody: string) {
