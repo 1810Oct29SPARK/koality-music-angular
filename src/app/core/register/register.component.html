@@ -1,3 +1,62 @@
-<p>
-  register works!
-</p>
+<section class="container">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>whatshot</mat-icon>
+        <span style="display: inline-block; margin-left: 10px;">Publisher</span>
+      </ng-template>
+      <form [formGroup]="publisherRegisterForm" (submit)="publisherRegister()" class="text-center border border-light p-5 register-form">
+        <p class="h4 mb-4">Register as publisher</p>
+        <div class="form-row mb-4">
+          <div class="col">
+            <input formControlName="firstName" type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input formControlName="lastName" type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+        <input formControlName="email" type="email" class="form-control mb-4" placeholder="E-mail">
+        <input formControlName="companyName" type="text" class="form-control mb-4" placeholder="Company name">
+        <input formControlName="username" type="text" class="form-control mb-4" placeholder="Username">
+        <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
+        <input formControlName="confirmPassword" type="password" class="form-control mb-4" placeholder="Confirm password">
+        <div class="col-md-12 mx-auto">
+          <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
+        </div>
+        <button [disabled]="!publisherRegisterForm.valid" mdbBtn color="primary" block="true" class="my-4" type="submit">Register</button>
+      </form>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>spa</mat-icon>
+        <span style="display: inline-block; margin-left: 10px;">Customer</span>
+      </ng-template>
+      <form [formGroup]="customerRegisterForm" (submit)="customerRegister()" class="text-center border border-light p-5 register-form">
+        <p class="h4 mb-4">Register as customer</p>
+        <div class="form-row mb-4">
+          <div class="col">
+            <input formControlName="firstName" type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input formControlName="lastName" type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+        <input formControlName="email" type="email" class="form-control mb-4" placeholder="E-mail">
+        <select formControlName="favoriteGenre" class="browser-default custom-select form-control mb-4">
+          <option selected>Choose your favorite genre</option>
+          <option *ngFor="let genre of musicGenres" [value]="genre">
+            {{genre}}
+          </option>
+        </select>
+        <input formControlName="username" type="text" class="form-control mb-4" placeholder="Username">
+        <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
+        <input formControlName="confirmPassword" type="password" class="form-control mb-4" placeholder="Confirm Password">
+        <div class="col-md-12 mx-auto">
+          <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
+        </div>
+        <button [disabled]="!customerRegisterForm.valid" mdbBtn color="dark" block="true" class="my-4" type="submit">Register</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</section>
