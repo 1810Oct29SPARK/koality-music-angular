@@ -17,6 +17,7 @@ import { CustomerAlbumDetailComponent } from './customer-album-detail/customer-a
 import { CustomerPlaylistListComponent } from './customer-playlist-list/customer-playlist-list.component';
 import { CustomerPlaylistDetailComponent } from './customer-playlist-detail/customer-playlist-detail.component';
 import { CustomerMusicPlayerComponent } from './customer-music-player/customer-music-player.component';
+import { TableModule, WavesModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,8 @@ import { CustomerMusicPlayerComponent } from './customer-music-player/customer-m
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    TableModule,
+    WavesModule,
     CustomerRoutingModule
   ]
 })

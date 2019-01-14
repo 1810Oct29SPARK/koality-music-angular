@@ -1,9 +1,64 @@
-<p>
-  customer-store-front works!
-</p>
-<p>
-  <button mat-raised-button color="accent" [routerLink]="[ '../store-track' ]" routerLinkActive="active">Store Track</button>
-</p>
-<p>
-  <button mat-raised-button color="accent" [routerLink]="[ '../store-album' ]" routerLinkActive="active">Store Album</button>
-</p>
+<section class="container">
+  <div style="background: white; text-align: center;">
+    <h3>Welcome to Koality Music Store!</h3>
+  </div>
+  <div class="gap-60"></div>
+  <h4 style="text-align: center;">Music Recommendations</h4>
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <mat-card>
+        <h5>Album One</h5>
+        <img mat-card-image src="https://static1.squarespace.com/static/58b0b04d86e6c04706c13fa7/58dbf9bb2994ca7505dcd487/58dbfb7d8419c2286a97a074/1490812944111/Gravebloom_colors_darker.jpg">
+        <mat-card-content>
+          <p>Sample text</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3">
+      <mat-card>
+        <h5>Album Two</h5>
+        <img mat-card-image src="https://cps-static.rovicorp.com/3/JPG_500/MI0003/148/MI0003148646.jpg">
+        <mat-card-content>
+          <p>Sample text</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3">
+      <mat-card>
+        <h5>Album Three</h5>
+        <img mat-card-image src="https://colleenplays.files.wordpress.com/2017/07/a-flamemy-love-a-frequency-album-cover.jpg">
+        <mat-card-content>
+          <p>Sample text</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+
+  <div class="gap-60"></div>
+  <div class="gap-60"></div>
+
+  <div class="flex-row-space">
+    <button class="btn-view" mat-raised-button color="accent" [routerLink]="[ '../store-track' ]" routerLinkActive="active">View
+      All
+      Tracks</button>
+    <button class="btn-view" mat-raised-button color="accent" [routerLink]="[ '../store-album' ]" routerLinkActive="active">View
+      All
+      Albums</button>
+  </div>
+</section>
