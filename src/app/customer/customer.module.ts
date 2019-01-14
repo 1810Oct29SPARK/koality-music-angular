@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { MaterialModule } from '../material.module';
@@ -35,6 +36,8 @@ import { CustomerMusicPlayerComponent } from './customer-music-player/customer-m
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     CustomerRoutingModule
   ]
 })

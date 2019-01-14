@@ -1,3 +1,63 @@
-<p>
-  customer-profile-edit works!
-</p>
+<section>
+  <div class="flex-col-center">
+    <div class="flex-row-center">
+      <form [formGroup]="updateInfoForm" (ngSubmit)="updateBasicInfo(event$)">
+        <h3>Edit Basic Info</h3>
+        <br>
+        <mat-form-field>
+          <input formControlName="firstName" matInput type="text" placeholder="First name">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="lastName" matInput type="text" placeholder="Last name">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="email" matInput type="text" placeholder="E-mail">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="favoriteGenre" matInput type="text" placeholder="Favorite genre">
+        </mat-form-field>
+        <br>
+        <button class="btn-edit" type="submit" mat-raised-button color="accent">Update</button>
+      </form>
+    </div>
+    <div class="gap-60"></div>
+    <div class="gap-60"></div>
+    <div class="flex-row-center">
+      <form [formGroup]="uploadImageForm" (ngSubmit)="updateProfileImage()">
+        <h3>Upload Profile Image</h3>
+        <br>
+        <div class="custom-file">
+          <label style="text-align: left;" class="custom-file-label">Choose file</label>
+          <input formControlName="image" type="file" class="custom-file-input">
+        </div>
+        <br>
+        <button class="btn-edit" type="submit" mat-raised-button color="accent">Update</button>
+      </form>
+    </div>
+    <div class="gap-60"></div>
+    <div class="gap-60"></div>
+    <div class="flex-row-center">
+      <form [formGroup]="updateCredentialsForm" (ngSubmit)="updateCredentials()">
+        <h3>Update Credentials</h3>
+        <br>
+        <mat-form-field>
+          <input formControlName="oldUsername" matInput type="text" placeholder="Old username">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="oldPassword" matInput type="password" placeholder="Old password">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="newUsername" matInput type="text" placeholder="New username">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="newPassword" matInput type="password" placeholder="New password">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="confirmNewPassword" matInput type="password" placeholder="Confirm new password">
+        </mat-form-field>
+        <br>
+        <button class="btn-edit" type="submit" mat-raised-button color="warn">Update</button>
+      </form>
+    </div>
+  </div>
+</section>

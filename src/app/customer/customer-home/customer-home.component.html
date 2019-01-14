@@ -16,17 +16,15 @@
       <i id="nav-div" class="material-icons" [routerLink]="[ 'profile-edit' ]" mat-list-item href="" routerLinkActive="active">person</i>
       <a class="content" [routerLink]="[ 'profile-edit' ]" mat-list-item href="" routerLinkActive="active">Profile Edit</a>
       <i id="nav-div" class="material-icons" [routerLink]="[ 'store-front' ]" mat-list-item href="" routerLinkActive="active">audiotrack</i>
-      <a class="content" [routerLink]="[ 'store-front' ]" mat-list-item href="" routerLinkActive="active">Publish
-        Track</a>
+      <a class="content" [routerLink]="[ 'store-front' ]" mat-list-item href="" routerLinkActive="active">Store Front</a>
       <i id="nav-div" class="material-icons" [routerLink]="[ 'playlist-list' ]" mat-list-item href="" routerLinkActive="active">album</i>
-      <a class="content" [routerLink]="[ 'playlist-list' ]" mat-list-item href="" routerLinkActive="active">Publish
-        Album</a>
+      <a class="content" [routerLink]="[ 'playlist-list' ]" mat-list-item href="" routerLinkActive="active">Playlists</a>
       <i id="nav-div" class="material-icons" [routerLink]="[ 'track-list' ]" mat-list-item href="" routerLinkActive="active">library_music</i>
       <a class="content" [routerLink]="[ 'track-list' ]" mat-list-item href="" routerLinkActive="active">Track List</a>
       <i id="nav-div" class="material-icons" [routerLink]="[ 'album-list' ]" mat-list-item href="" routerLinkActive="active">queue_music</i>
       <a class="content" [routerLink]="[ 'album-list' ]" mat-list-item href="" routerLinkActive="active">Album List</a>
       <i id="nav-div" class="material-icons" [routerLink]="[ 'music-player' ]" mat-list-item href="" routerLinkActive="active">subscriptions</i>
-      <a class="content" [routerLink]="[ 'music-player' ]" mat-list-item href="" routerLinkActive="active">Subscribers</a>
+      <a class="content" [routerLink]="[ 'music-player' ]" mat-list-item href="" routerLinkActive="active">Music Player</a>
       <div class="logout">
         <i id="nav-div" class="material-icons" [routerLink]="[ '' ]" mat-list-item href="" routerLinkActive="active">power_settings_new</i>
         <a class="content" [routerLink]="[ '' ]" mat-list-item href="" routerLinkActive="active">Logout</a>
@@ -35,7 +33,9 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <div class="gap-60"></div>
     <router-outlet></router-outlet>
+    <div class="gap-60"></div>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
