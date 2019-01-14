@@ -1,0 +1,21 @@
+mat-card {
+  margin: 25%;
+  padding-left: 15%;
+  padding-right: 15%;
+  float: inherit;
+  padding-top: 5%;
+  position: relative;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.btn-publish {
+  width: 160px;
+  margin: auto;
+  display: inline-block;
+}
+
+.alert {
+  font-size: 14px;
+  margin: 10px 0;
+}
