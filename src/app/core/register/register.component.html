@@ -1,4 +1,5 @@
 <section class="container">
+  <div style="height: 60px;"></div>
   <mat-tab-group mat-align-tabs="center">
     <mat-tab>
       <ng-template mat-tab-label>
@@ -24,6 +25,9 @@
           <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
         </div>
         <button [disabled]="!publisherRegisterForm.valid" mdbBtn color="primary" block="true" class="my-4" type="submit">Register</button>
+        <p>Already a member?
+          <button type="button" mdbBtn color="info" block="true" class="my-4" routerLink="/login">Login</button>
+        </p>
       </form>
     </mat-tab>
 
@@ -56,6 +60,9 @@
           <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
         </div>
         <button [disabled]="!customerRegisterForm.valid" mdbBtn color="dark" block="true" class="my-4" type="submit">Register</button>
+        <p>Already a member?
+          <button type="button" mdbBtn color="info" block="true" class="my-4" routerLink="/login">Login</button>
+        </p>
       </form>
     </mat-tab>
   </mat-tab-group>
