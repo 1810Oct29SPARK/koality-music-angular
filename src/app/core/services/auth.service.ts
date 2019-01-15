@@ -77,15 +77,31 @@ export class AuthService {
   }
 
   logout() {
+
     this.http.get<string>(AuthService.baseUrl + 'logout')
       .subscribe(response => {
-        console.log(response);
         this.currentCustomer = null;
         this.currentPublisher = null;
         this.currentCustomerId = 0;
         this.currentPublisherId = 0;
-        this.router.navigate(['/']);
       });
+
+  }
+
+  fetchPublisher(): Observable<Publisher> {
+
+    const body = { 'publisherId': this.currentPublisherId };
+
+    return this.http.post<Publisher>(AuthService.baseUrl + 'profile-publisher', JSON.stringify(body));
+
+  }
+
+  fetchCustomer(): Observable<Customer> {
+
+    const body = { 'customerId': this.currentCustomerId };
+
+    return this.http.post<Customer>(AuthService.baseUrl + 'profile-customer', JSON.stringify(body));
+
   }
 
 }

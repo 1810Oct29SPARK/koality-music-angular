@@ -9,9 +9,22 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class CustomerHomeComponent implements OnInit {
 
+  firstName = '';
+  lastName = '';
+
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.fetchCustomer()
+      .subscribe(response => {
+        this.authService.currentCustomer = response;
+        this.loadCustomerDetail();
+      });
+  }
+
+  loadCustomerDetail() {
+    this.firstName = this.authService.currentCustomer.customerDetail.firstName;
+    this.lastName = this.authService.currentCustomer.customerDetail.lastName;
   }
 
   logoutCustomer() {

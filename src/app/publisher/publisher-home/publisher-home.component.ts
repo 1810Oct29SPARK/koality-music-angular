@@ -9,9 +9,22 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class PublisherHomeComponent implements OnInit {
 
+  firstName = '';
+  lastName = '';
+
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.fetchPublisher()
+      .subscribe(response => {
+        this.authService.currentPublisher = response;
+        this.loadPublisherDetail();
+      });
+  }
+
+  loadPublisherDetail() {
+    this.firstName = this.authService.currentPublisher.publisherDetail.firstName;
+    this.lastName = this.authService.currentPublisher.publisherDetail.lastName;
   }
 
   logoutPublisher() {

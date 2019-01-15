@@ -25,19 +25,15 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
     if (state.url.includes('publisher')) {
       if (this.authService.currentPublisherId > 0) {
-        console.log(this.authService.currentPublisherId + ' good to go');
         return true;
       } else {
-        console.log('no go');
         this.router.navigate(['/login']);
         return false;
       }
     } else if (state.url.includes('customer')) {
       if (this.authService.currentCustomerId > 0) {
-        console.log(this.authService.currentCustomerId + ' good to go');
         return true;
       } else {
-        console.log('no go');
         this.router.navigate(['/login']);
         return false;
       }
@@ -60,19 +56,15 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
     if (route.path.includes('publisher')) {
       if (this.authService.currentPublisherId > 0) {
-        console.log(this.authService.currentPublisherId + ' good to go');
         return true;
       } else {
-        console.log('no go');
         this.router.navigate(['/login']);
         return false;
       }
     } else if (route.path.includes('customer')) {
       if (this.authService.currentCustomerId > 0) {
-        console.log(this.authService.currentCustomerId + ' good to go');
         return true;
       } else {
-        console.log('no go');
         this.router.navigate(['/login']);
         return false;
       }

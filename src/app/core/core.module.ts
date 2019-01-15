@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
 
 import { AuthService } from './services/auth.service';
+import { StatsService } from './services/stats.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AuthService } from './services/auth.service';
     MdbTablePaginationComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    StatsService
   ]
 })
 export class CoreModule { }
