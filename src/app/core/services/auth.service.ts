@@ -116,9 +116,24 @@ export class AuthService {
   uploadPublisherImage(requestBody: Object): Observable<any> {
 
     requestBody['publisherId'] = this.currentPublisherId;
-    console.log(requestBody);
 
     return this.http.post(AuthService.baseUrl + 'image-publisher', JSON.stringify(requestBody));
+
+  }
+
+  updateCustomerInformation(requestBody: Object): Observable<any> {
+
+    requestBody['customerId'] = this.currentCustomerId;
+
+    return this.http.put(AuthService.baseUrl + 'profile-customer', JSON.stringify(requestBody));
+
+  }
+
+  uploadCustomerImage(requestBody: Object): Observable<any> {
+
+    requestBody['customerId'] = this.currentCustomerId;
+
+    return this.http.post(AuthService.baseUrl + 'image-customer', JSON.stringify(requestBody));
 
   }
 

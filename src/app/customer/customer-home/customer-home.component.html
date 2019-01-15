@@ -2,8 +2,7 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" opened="true" mode="side">
     <div class="flex-col-center">
       <mat-toolbar id="sidnav2" class="content1">
-        <img style="display: inline-block; margin: 20px auto;" src="https://image.flaticon.com/icons/png/512/123/123164.png"
-          width="64" height="64" alt="profile">
+        <img style="display: inline-block; margin: 20px auto;" [src]="imageUrl" width="64" height="64" alt="profile">
       </mat-toolbar>
       <br>
       <h2 class="name"><span class="small-name">{{firstName | titlecase}}</span><span class="small-name">{{lastName |
@@ -27,7 +26,7 @@
       <a class="content" [routerLink]="[ 'music-player' ]" mat-list-item href="" routerLinkActive="active">Music Player</a>
       <div class="logout">
         <i id="nav-div" class="material-icons" mat-list-item href="" routerLinkActive="active">power_settings_new</i>
-        <a (click)="logoutCustomer()" class="content" mat-list-item href="" routerLinkActive="active">Logout</a>
+        <a (click)="logoutCustomer()" class="content" mat-list-item routerLinkActive="active">Logout</a>
       </div>
     </mat-nav-list>
   </mat-sidenav>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../core/services/auth.service';
 
 import { GlobalVars } from '../../shared/global-vars';
 
@@ -16,7 +19,11 @@ export class CustomerProfileEditComponent implements OnInit {
   updateCredentialsForm: FormGroup;
   uploadImageForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder) {
+  imageName = 'Choose a file';
+  imageType: string = null;
+  imageUrl: string = null;
+
+  constructor(public formBuilder: FormBuilder, public authService: AuthService, public router: Router) {
 
     this.updateInfoForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -34,7 +41,7 @@ export class CustomerProfileEditComponent implements OnInit {
     });
 
     this.uploadImageForm = this.formBuilder.group({
-      image: ['', Validators.required]
+      image: [null, Validators.required]
     });
 
   }
@@ -42,14 +49,36 @@ export class CustomerProfileEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  loadImageUrl(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.imageName = file.name;
+      this.imageType = file.name.substring(file.name.lastIndexOf('.') + 1);
+      const fr = new FileReader();
+      fr.readAsDataURL(file);
+      fr.onload = () => {
+        this.imageUrl = fr.result.toString();
+      };
+    }
+  }
+
   updateBasicInfo() {
-    console.log('basic info submitted');
     console.log(this.updateInfoForm.value);
+    this.authService.updateCustomerInformation(this.updateInfoForm.value)
+      .subscribe(() => {
+        this.router.navigate(['/customer/dashboard']);
+      });
   }
 
   updateProfileImage() {
-    console.log('profile image uploaded');
     console.log(this.uploadImageForm.value);
+    const image = {};
+    image['imageType'] = this.imageType;
+    image['imageData'] = this.imageUrl;
+    this.authService.uploadCustomerImage(image)
+      .subscribe(() => {
+        this.router.navigate(['/customer/dashboard']);
+      });
   }
 
   updateCredentials() {

@@ -11,6 +11,7 @@ export class CustomerHomeComponent implements OnInit {
 
   firstName = '';
   lastName = '';
+  imageUrl = 'https://image.flaticon.com/icons/png/512/123/123164.png';
 
   constructor(public authService: AuthService) { }
 
@@ -25,6 +26,7 @@ export class CustomerHomeComponent implements OnInit {
   loadCustomerDetail() {
     this.firstName = this.authService.currentCustomer.customerDetail.firstName;
     this.lastName = this.authService.currentCustomer.customerDetail.lastName;
+    this.imageUrl = this.authService.currentCustomer.imageUrl;
   }
 
   logoutCustomer() {
