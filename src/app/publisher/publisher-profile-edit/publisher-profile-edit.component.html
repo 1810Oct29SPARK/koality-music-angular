@@ -27,9 +27,11 @@
         <h3>Upload Profile Image</h3>
         <br>
         <div class="custom-file">
-          <label style="text-align: left;" class="custom-file-label">Choose file</label>
-          <input formControlName="image" type="file" class="custom-file-input">
+          <label style="text-align: left;" class="custom-file-label">{{imageName}}</label>
+          <input (change)="loadImageUrl($event)" formControlName="image" type="file" class="custom-file-input">
         </div>
+        <br>
+        <img *ngIf="imageUrl" style="display: inline-block; margin: auto;" width="100" height="100" [src]="imageUrl">
         <br>
         <button class="btn-edit" type="submit" mat-raised-button color="accent">Update</button>
       </form>

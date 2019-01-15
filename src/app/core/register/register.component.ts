@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      companyName: ['', Validators.nullValidator],
+      companyName: [null, Validators.nullValidator],
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       confirmPassword: ['', Validators.nullValidator]
@@ -45,14 +45,18 @@ export class RegisterComponent implements OnInit {
   }
 
   publisherRegister() {
-    console.log('publisher register form submitted');
     console.log(this.publisherRegisterForm.value);
+    if (this.publisherRegisterForm.value.companyName === '') {
+      this.publisherRegisterForm.value.companyName = null;
+    }
     this.authService.registerPublisher(JSON.stringify(this.publisherRegisterForm.value));
   }
 
   customerRegister() {
-    console.log('customer register form submitted');
     console.log(this.customerRegisterForm.value);
+    if (this.customerRegisterForm.value.favoriteGenre === 'Choose your favorite genre') {
+      this.customerRegisterForm.value.favoriteGenre = null;
+    }
     this.authService.registerCustomer(JSON.stringify(this.customerRegisterForm.value));
   }
 

@@ -13,7 +13,12 @@
         </div>
         <div class="form-group">
           <label>Genre</label>
-          <input type="text" formControlName="genre" class="form-control" />
+          <select formControlName="genre" class="form-control">
+            <option value="" selected>Choose a genre</option>
+            <option *ngFor="let genre of musicGenres" [value]="genre">
+              {{genre}}
+            </option>
+          </select>
           <div class="alert alert-danger" *ngIf="publishFormControls.genre.touched && publishFormControls.genre.errors">
             <div *ngIf="publishFormControls.genre.errors.required">Genre is required</div>
           </div>

@@ -14,7 +14,12 @@
           <input formControlName="email" matInput type="text" placeholder="E-mail">
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="favoriteGenre" matInput type="text" placeholder="Favorite genre">
+          <mat-select formControlName="favoriteGenre" matInput type="text" placeholder="Favorite genre">
+            <mat-option selected value="">Choose your favorite genre</mat-option>
+            <mat-option *ngFor="let genre of musicGenres" [value]="genre">
+              {{genre}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <br>
         <button class="btn-edit" type="submit" mat-raised-button color="accent">Update</button>

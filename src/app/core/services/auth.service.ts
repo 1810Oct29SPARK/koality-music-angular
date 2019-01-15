@@ -79,11 +79,12 @@ export class AuthService {
   logout() {
 
     this.http.get<string>(AuthService.baseUrl + 'logout')
-      .subscribe(response => {
+      .subscribe(() => {
         this.currentCustomer = null;
         this.currentPublisher = null;
         this.currentCustomerId = 0;
         this.currentPublisherId = 0;
+        this.router.navigate(['/']);
       });
 
   }
@@ -101,6 +102,23 @@ export class AuthService {
     const body = { 'customerId': this.currentCustomerId };
 
     return this.http.post<Customer>(AuthService.baseUrl + 'profile-customer', JSON.stringify(body));
+
+  }
+
+  updatePublisherInfomation(requestBody: Object): Observable<any> {
+
+    requestBody['publisherId'] = this.currentPublisherId;
+
+    return this.http.put(AuthService.baseUrl + 'profile-publisher', JSON.stringify(requestBody));
+
+  }
+
+  uploadPublisherImage(requestBody: Object): Observable<any> {
+
+    requestBody['publisherId'] = this.currentPublisherId;
+    console.log(requestBody);
+
+    return this.http.post(AuthService.baseUrl + 'image-publisher', JSON.stringify(requestBody));
 
   }
 

@@ -11,6 +11,7 @@ export class PublisherHomeComponent implements OnInit {
 
   firstName = '';
   lastName = '';
+  imageUrl = 'https://image.flaticon.com/icons/png/512/123/123164.png';
 
   constructor(public authService: AuthService) { }
 
@@ -25,6 +26,9 @@ export class PublisherHomeComponent implements OnInit {
   loadPublisherDetail() {
     this.firstName = this.authService.currentPublisher.publisherDetail.firstName;
     this.lastName = this.authService.currentPublisher.publisherDetail.lastName;
+    if (this.authService.currentPublisher.imageUrl != null) {
+      this.imageUrl = this.authService.currentPublisher.imageUrl;
+    }
   }
 
   logoutPublisher() {

@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { GlobalVars } from '../../shared/global-vars';
+
 @Component({
   selector: 'app-customer-profile-edit',
   templateUrl: './customer-profile-edit.component.html',
   styleUrls: ['./customer-profile-edit.component.css']
 })
 export class CustomerProfileEditComponent implements OnInit {
+
+  musicGenres = GlobalVars.musicGenres;
 
   updateInfoForm: FormGroup;
   updateCredentialsForm: FormGroup;
@@ -18,7 +22,7 @@ export class CustomerProfileEditComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      favoriteGenre: ['', Validators.nullValidator]
+      favoriteGenre: [null, Validators.nullValidator]
     });
 
     this.updateCredentialsForm = this.formBuilder.group({

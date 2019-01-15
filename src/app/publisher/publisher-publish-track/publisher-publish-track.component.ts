@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
+import { GlobalVars } from '../../shared/global-vars';
+
 @Component({
   selector: 'app-publisher-publish-track',
   templateUrl: './publisher-publish-track.component.html',
   styleUrls: ['./publisher-publish-track.component.css']
 })
 export class PublisherPublishTrackComponent implements OnInit {
+
+  musicGenres = GlobalVars.musicGenres;
 
   publishTrackForm: FormGroup;
   publishFormControls: any;
