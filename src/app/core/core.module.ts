@@ -24,6 +24,8 @@ import { LandingComponent } from './landing/landing.component';
 
 import { AuthService } from './services/auth.service';
 import { StatsService } from './services/stats.service';
+import { TrackService } from './services/track.service';
+import { AlbumService } from './services/album.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { StatsService } from './services/stats.service';
   ],
   providers: [
     AuthService,
-    StatsService
+    StatsService,
+    TrackService,
+    AlbumService
   ]
 })
 export class CoreModule { }

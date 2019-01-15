@@ -38,6 +38,13 @@
           </div>
         </div>
         <div class="form-group">
+          <label>Track length</label>
+          <input type="number" formControlName="trackLength" class="form-control" />
+          <div class="alert alert-danger" *ngIf="publishFormControls.trackLength.touched && publishFormControls.trackLength.errors">
+            <div *ngIf="publishFormControls.trackLength.errors.required">Track length is required</div>
+          </div>
+        </div>
+        <div class="form-group">
           <label>Unit price</label>
           <input type="number" step="0.01" formControlName="unitPrice" class="form-control" />
           <div class="alert alert-danger" *ngIf="publishFormControls.unitPrice.touched && publishFormControls.unitPrice.errors">

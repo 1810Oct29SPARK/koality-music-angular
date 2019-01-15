@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { GlobalVars } from '../../shared/global-vars';
+
+import { TrackService } from '../../core/services/track.service';
 
 @Component({
   selector: 'app-publisher-publish-track',
@@ -14,19 +17,20 @@ export class PublisherPublishTrackComponent implements OnInit {
 
   publishTrackForm: FormGroup;
   publishFormControls: any;
-  audioName = 'Choose file';
+  audioName = 'Choose a file';
   audioType: string;
   audioUrl: string;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, public trackService: TrackService, public router: Router) {
 
     this.publishTrackForm = this.formBuilder.group({
       trackName: ['', Validators.required],
       genre: ['', Validators.required],
       composer: ['', Validators.required],
       artist: ['', Validators.required],
-      unitPrice: ['', [Validators.required]],
-      audio: ['', Validators.required]
+      trackLength: [0, Validators.required],
+      unitPrice: [0, [Validators.required]],
+      audio: [null, Validators.required]
     });
 
   }
@@ -41,14 +45,21 @@ export class PublisherPublishTrackComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.audioName = file.name;
-      this.audioType = file.name.substring(file.name.length - 3);
+      this.audioType = file.name.substring(file.name.lastIndexOf('.') + 1);
       this.audioUrl = reader.result.toString();
     };
   }
 
   publishTrack() {
-    console.log('publish track form submitted');
     console.log(this.publishTrackForm.value);
+    const requestObj = this.publishTrackForm.value;
+    requestObj['audioType'] = this.audioType;
+    requestObj['audioData'] = this.audioUrl;
+    this.trackService.publishTrack(requestObj)
+      .subscribe(response => {
+        console.log(response);
+        this.router.navigate(['/publisher/dashboard']);
+      });
   }
 
 }
