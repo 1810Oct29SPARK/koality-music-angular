@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
+
+import { Track } from '../../shared/models/track';
+
+import { TrackService } from '../../core/services/track.service';
 
 @Component({
   selector: 'app-customer-track-list',
@@ -7,9 +13,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerTrackListComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = [
+    'name',
+    'genre',
+    'composer',
+    'artist',
+    'length',
+    'price',
+    'action'
+  ];
+  rawData: Track[];
+  dataSource = null;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  constructor(public trackService: TrackService, public router: Router) { }
 
   ngOnInit() {
+    this.trackService.getOwnedTracks()
+      .subscribe(response => {
+        this.rawData = response;
+        this.dataSource = new MatTableDataSource<Track>(this.rawData);
+        this.dataSource.paginator = this.paginator;
+      });
+  }
+
+  selectTrack(track: Track) {
+    this.trackService.selectedTrack = track;
+    this.router.navigate(['/customer/music-player']);
   }
 
 }

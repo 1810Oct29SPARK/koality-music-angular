@@ -5,3 +5,11 @@ table {
 button {
   min-width: 180px;
 }
+
+ng-container {
+  margin: 0 10px;
+}
+
+ng-container button.btn {
+  min-width: 80px;
+}

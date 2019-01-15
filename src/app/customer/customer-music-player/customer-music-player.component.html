@@ -1,3 +1,37 @@
-<p>
-  customer-music-player works!
-</p>
+<section class="container">
+  <h3 style="text-align: center;">Your Koality Music Player!</h3>
+  <div class="gap-60"></div>
+  <div>
+    <mat-list>
+      <h3 mat-subheader style="font-size: 20px;">Track Detail</h3>
+      <mat-list-item>
+        <mat-icon mat-list-icon>music_video</mat-icon>
+        <h4 mat-line><strong>Track Name: {{selectedTrack.trackName}}</strong></h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Genre: {{selectedTrack.genre}}</h5>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Composer: {{selectedTrack.composer}}</h5>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Artist: {{selectedTrack.artist}}</h5>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Length: {{selectedTrack.trackLength}}</h5>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <br>
+  <h3 class="gap-60" *ngIf="!playingTrack" style="text-align: center;">Loading...</h3>
+  <div *ngIf="!playingTrack" class="flex-row-center">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="playingTrack" class="flex-row-center">
+    <audio controls [src]="playingTrack.audioUrl"></audio>
+  </div>
+</section>

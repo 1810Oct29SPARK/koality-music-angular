@@ -11,6 +11,9 @@ import { Track } from '../../shared/models/track';
 })
 export class TrackService {
 
+  shoppingCart: number[] = [];
+  selectedTrack: Track;
+
   constructor(public http: HttpClient, public authService: AuthService) { }
 
   getAllAvailableTracks(): Observable<Track[]> {
