@@ -1,6 +1,14 @@
-<p>
-  publisher-track-reviews works!
-</p>
-<p>
-  <button mat-raised-button color="primary" [routerLink]="[ '../track-list' ]" routerLinkActive="active">Go Back</button>
-</p>
+<h3>Track Review Panel</h3>
+<section class="container">
+  <div class="gap-60"></div>
+  <div *ngIf="track">
+    <h4>Reviews for {{track.trackName}}</h4>
+  </div>
+  <hr>
+  <div class="gap-20"></div>
+  <div *ngFor="let review of trackReviews" class="review-list-item">
+    <h5><em>Rating: {{review.reviewContent.rating}}</em></h5>
+    <p>Comment: {{review.reviewContent.reviewComment}}</p>
+    <br>
+  </div>
+</section>

@@ -26,9 +26,9 @@ const routes: Routes = [
           { path: 'publish-track', component: PublisherPublishTrackComponent },
           { path: 'publish-album', component: PublisherPublishAlbumComponent },
           { path: 'track-list', component: PublisherTrackListComponent },
-          { path: 'track-review', component: PublisherTrackReviewsComponent },
+          { path: 'track-reviews', component: PublisherTrackReviewsComponent },
           { path: 'album-list', component: PublisherAlbumListComponent },
-          { path: 'album-review', component: PublisherAlbumReviewsComponent },
+          { path: 'album-reviews', component: PublisherAlbumReviewsComponent },
           { path: 'subscribers', component: PublisherSubscribersComponent },
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ]

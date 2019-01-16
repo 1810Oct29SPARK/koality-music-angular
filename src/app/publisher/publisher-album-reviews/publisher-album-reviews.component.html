@@ -1,6 +1,14 @@
-<p>
-  publisher-album-reviews works!
-</p>
-<p>
-  <button mat-raised-button color="primary" [routerLink]="[ '../album-list' ]" routerLinkActive="active">Go Back</button>
-</p>
+<h3>Album Review Panel</h3>
+<section class="container">
+  <div class="gap-60"></div>
+  <div *ngIf="album">
+    <h4>Reviews for {{album.albumName}}</h4>
+  </div>
+  <hr>
+  <div class="gap-20"></div>
+  <div *ngFor="let review of albumReviews" class="review-list-item">
+    <h5><em>Rating: {{review.reviewContent.rating}}</em></h5>
+    <p>Comment: {{review.reviewContent.reviewComment}}</p>
+    <br>
+  </div>
+</section>

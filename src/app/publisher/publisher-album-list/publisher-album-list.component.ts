@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
+
+import { Album } from '../../shared/models/album';
+
+import { AlbumService } from '../../core/services/album.service';
+import { ReviewService } from 'src/app/core/services/review.service';
 
 @Component({
   selector: 'app-publisher-album-list',
@@ -7,9 +14,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublisherAlbumListComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = [
+    'name',
+    'genre',
+    'price',
+    'action'
+  ];
+  rawData: Album[];
+  dataSource = null;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  constructor(public albumService: AlbumService, public router: Router, public reviewService: ReviewService) { }
 
   ngOnInit() {
+    this.albumService.getPublishedAlbums()
+      .subscribe(response => {
+        this.rawData = response;
+        this.dataSource = new MatTableDataSource<Album>(this.rawData);
+        this.dataSource.paginator = this.paginator;
+      });
+  }
+
+  viewReview(album: Album) {
+    this.reviewService.selectedAlbum = album;
+    this.router.navigate(['/publisher/album-reviews']);
   }
 
 }
