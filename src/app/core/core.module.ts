@@ -26,6 +26,7 @@ import { AuthService } from './services/auth.service';
 import { StatsService } from './services/stats.service';
 import { TrackService } from './services/track.service';
 import { AlbumService } from './services/album.service';
+import { ReviewService } from './services/review.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { AlbumService } from './services/album.service';
     AuthService,
     StatsService,
     TrackService,
-    AlbumService
+    AlbumService,
+    ReviewService
   ]
 })
 export class CoreModule { }

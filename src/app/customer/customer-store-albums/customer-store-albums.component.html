@@ -1,6 +1,43 @@
-<p>
-  customer-store-albums works!
-</p>
-<p>
-  <button mat-raised-button color="primary" [routerLink]="[ '../store-front' ]" routerLinkActive="active">Store Front</button>
-</p>
+<section class="container">
+  <div style="text-align: center;">
+    <h3>Browse All Albums</h3>
+  </div>
+  <div class="gap-60"></div>
+  <div *ngIf="albumList" class="row">
+    <div *ngFor="let album of albumList" class="col-lg-4 col-md-6 col-sm-12">
+      <mat-card>
+        <h4>{{album.albumName | titlecase}}</h4>
+        <img mat-card-image src="{{album.imageUrl}}">
+        <mat-card-content>
+          <h5><em>{{album.genre}}</em></h5>
+          <h5>${{album.unitPrice}}</h5>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="viewDetail(albumDetail, album)" mat-button>Detail</button>
+          <button (click)="buy(album)" mat-button>Buy</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <ng-template #albumDetail let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Album Tracks</h4>
+    </div>
+    <div *ngIf="trackList" class="modal-body">
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let track of trackList" class="list-group-item">{{track.trackName}}</li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+  </ng-template>
+
+  <div class="gap-60"></div>
+  <div class="gap-60"></div>
+
+  <div class="flex-row-center">
+    <button mat-raised-button color="primary" [routerLink]="[ '../store-front' ]" routerLinkActive="active">Store Front</button>
+  </div>
+</section>

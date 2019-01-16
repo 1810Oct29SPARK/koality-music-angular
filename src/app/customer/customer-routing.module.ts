@@ -15,6 +15,7 @@ import { CustomerAlbumDetailComponent } from './customer-album-detail/customer-a
 import { CustomerPlaylistDetailComponent } from './customer-playlist-detail/customer-playlist-detail.component';
 
 import { AuthGuard } from '../core/guards/auth.guard';
+import { PlayerGuard } from '../core/guards/player.guard';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
           { path: 'album-detail', component: CustomerAlbumDetailComponent },
           { path: 'playlist-list', component: CustomerPlaylistListComponent },
           { path: 'playlist-detail', component: CustomerPlaylistDetailComponent },
-          { path: 'music-player', component: CustomerMusicPlayerComponent },
+          { path: 'music-player', component: CustomerMusicPlayerComponent, canActivate: [PlayerGuard] },
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ]
       }

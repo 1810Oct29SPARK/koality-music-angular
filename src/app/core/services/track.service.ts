@@ -12,7 +12,7 @@ import { Track } from '../../shared/models/track';
 export class TrackService {
 
   shoppingCart: number[] = [];
-  selectedTrack: Track;
+  selectedTrack: Track = null;
 
   constructor(public http: HttpClient, public authService: AuthService) { }
 

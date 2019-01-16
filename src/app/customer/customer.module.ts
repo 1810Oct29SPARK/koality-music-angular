@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CustomerRoutingModule } from './customer-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material.module';
 
 import { CustomerHomeComponent } from './customer-home/customer-home.component';
@@ -41,7 +42,8 @@ import { TableModule, WavesModule } from 'angular-bootstrap-md';
     ReactiveFormsModule,
     TableModule,
     WavesModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    NgbModule
   ]
 })
 export class CustomerModule { }

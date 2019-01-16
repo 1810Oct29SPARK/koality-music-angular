@@ -1,3 +1,43 @@
-<p>
-  publisher-publish-album works!
-</p>
+<section class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h3 style="text-align: center;">Create and Publish Album</h3>
+      <br>
+      <form [formGroup]="publishAlbumForm" (ngSubmit)="publishAlbum()">
+        <mat-form-field>
+          <input formControlName="albumName" matInput type="text" placeholder="Album name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="genre" matInput type="text" placeholder="Album genre">
+            <mat-option selected value="">Choose a genre</mat-option>
+            <mat-option *ngFor="let genre of musicGenres" [value]="genre">
+              {{genre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="unitPrice" matInput type="number" step="0.01" placeholder="Album price">
+        </mat-form-field>
+        <br>
+        <div class="custom-file">
+          <label style="text-align: left;" class="custom-file-label">{{imageName}}</label>
+          <input (change)="loadImageUrl($event)" formControlName="image" type="file" class="custom-file-input">
+        </div>
+        <br>
+        <img *ngIf="imageUrl" style="display: inline-block; margin: auto;" width="100" height="100" [src]="imageUrl">
+        <br>
+        <div>
+          <h5>Choose tracks</h5>
+          <br>
+          <div *ngIf="publishedTracks" style="padding: 0; margin: 0;" class="row">
+            <div *ngFor="let track of publishedTracks" style="padding: 0; text-align: left" class="col-4">
+              <mat-checkbox (change)="selectTrack($event, track)">{{track.trackName}}</mat-checkbox>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <button [disabled]="!publishAlbumForm.valid" class="btn-publish" type="submit" mat-raised-button color="primary">Publish</button>
+      </form>
+    </div>
+  </div>
+</section>
