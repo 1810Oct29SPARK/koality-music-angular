@@ -1,5 +1,5 @@
 .active {
-  color: purple;
+  color: #880e4f;
 }
 .active {
   color: white;
@@ -11,7 +11,7 @@
 
 .sidenav {
   width: 200px;
-  background-color: purple;
+  background-color: #880e4f;
 }
 
 .sidenav .mat-toolbar {
@@ -35,13 +35,13 @@ mat-toolbar {
 }
 
 mat-nav-list {
-  background-color: purple;
+  background-color: #880e4f;
   color: #c7c7c7;
   height: 60%;
 }
 
 mat-sidnav {
-  background-color: purple;
+  background-color: #880e4f;
   color: #c7c7c7;
 }
 
@@ -50,12 +50,12 @@ mat-list-item {
 }
 
 .content {
-  background-color: purple;
+  background-color: #880e4f;
   color: #c7c7c7;
 }
 
 .content1 {
-  background-color: purple;
+  background-color: #880e4f;
   color: #ffffff;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
@@ -63,7 +63,7 @@ mat-list-item {
 }
 
 mat-toolbar {
-  background-color: purple;
+  background-color: #880e4f;
 }
 
 mat-drawer-inner-container {
