@@ -14,7 +14,6 @@ import { CustomerStoreTracksComponent } from './customer-store-tracks/customer-s
 import { CustomerStoreAlbumsComponent } from './customer-store-albums/customer-store-albums.component';
 import { CustomerTrackListComponent } from './customer-track-list/customer-track-list.component';
 import { CustomerAlbumListComponent } from './customer-album-list/customer-album-list.component';
-import { CustomerAlbumDetailComponent } from './customer-album-detail/customer-album-detail.component';
 import { CustomerPlaylistListComponent } from './customer-playlist-list/customer-playlist-list.component';
 import { CustomerPlaylistDetailComponent } from './customer-playlist-detail/customer-playlist-detail.component';
 import { CustomerMusicPlayerComponent } from './customer-music-player/customer-music-player.component';
@@ -30,7 +29,6 @@ import { TableModule, WavesModule } from 'angular-bootstrap-md';
     CustomerStoreAlbumsComponent,
     CustomerTrackListComponent,
     CustomerAlbumListComponent,
-    CustomerAlbumDetailComponent,
     CustomerPlaylistListComponent,
     CustomerPlaylistDetailComponent,
     CustomerMusicPlayerComponent

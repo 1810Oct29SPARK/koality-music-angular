@@ -38,7 +38,7 @@ export class AlbumService {
 
   getPurchasedAlbums(): Observable<Album[]> {
 
-    const requestBody = { 'publisherId': this.authService.currentCustomerId };
+    const requestBody = { 'customerId': this.authService.currentCustomerId };
 
     return this.http.post<Album[]>(AuthService.baseUrl + 'purchased-albums', JSON.stringify(requestBody));
 

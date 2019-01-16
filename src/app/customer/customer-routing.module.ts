@@ -11,7 +11,6 @@ import { CustomerPlaylistListComponent } from './customer-playlist-list/customer
 import { CustomerMusicPlayerComponent } from './customer-music-player/customer-music-player.component';
 import { CustomerStoreTracksComponent } from './customer-store-tracks/customer-store-tracks.component';
 import { CustomerStoreAlbumsComponent } from './customer-store-albums/customer-store-albums.component';
-import { CustomerAlbumDetailComponent } from './customer-album-detail/customer-album-detail.component';
 import { CustomerPlaylistDetailComponent } from './customer-playlist-detail/customer-playlist-detail.component';
 
 import { AuthGuard } from '../core/guards/auth.guard';
@@ -31,7 +30,6 @@ const routes: Routes = [
           { path: 'store-album', component: CustomerStoreAlbumsComponent },
           { path: 'track-list', component: CustomerTrackListComponent },
           { path: 'album-list', component: CustomerAlbumListComponent },
-          { path: 'album-detail', component: CustomerAlbumDetailComponent },
           { path: 'playlist-list', component: CustomerPlaylistListComponent },
           { path: 'playlist-detail', component: CustomerPlaylistDetailComponent },
           { path: 'music-player', component: CustomerMusicPlayerComponent, canActivate: [PlayerGuard] },
