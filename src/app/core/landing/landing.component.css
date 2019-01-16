@@ -1,5 +1,6 @@
 .landing-component-container {
   text-align: center;
+  background-color: gray;
   align-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -15,7 +16,7 @@
 }
 
 .landing-table-padding {
-  padding: 100px;
+  padding: 50px;
 }
 
 .landing-title-and-subtext {

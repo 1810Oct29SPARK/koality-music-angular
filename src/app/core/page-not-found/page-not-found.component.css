@@ -1,0 +1,46 @@
+img {
+  position: fixed;
+  top: 30%;
+  left: 45%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+
+#centered {
+  position: absolute;
+  top: 30%;
+  left: 49.2%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#centered2 {
+  position: absolute;
+  top: 75%;
+  left: 49.2%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.img {
+  border-radius: 50%;
+  height: 30%;
+  width: 15%;
+  position: fixed;
+  top: 52%;
+  left: 55%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+
+.record-arm {
+  position: fixed;
+  top: 33%;
+  left: 62%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+
+body {
+  background-color: white;
+}

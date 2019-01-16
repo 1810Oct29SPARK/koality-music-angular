@@ -1,31 +1,42 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
 <div class="landing-component-container">
+
+  <mdb-carousel [isControls]="false" [animation]="'slide'">
+    <mdb-carousel-item>
+      <img src="http://hiresaudiocentral.com/wp-content/uploads/2017/09/EQUALIZER-GRAPHIC.jpg" alt="First slide" class="mh-100"
+        style="width: 100%; height: 70vh">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img src="https://weareheights.com/wp-content/uploads/2018/01/music-stock.jpg" alt="Second slide" class="mh-100"
+        style="width: 100%; height: 70vh">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img src="https://www.emergeinfluence.com/wp-content/uploads/emergeinfluence_uploadmusic.jpg" alt="Third slide"
+        class="mh-100" style="width: 100%; height: 70vh">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img src="https://www.videvo.net/wp-content/uploads/2018/05/Muisc-and-SFX-Feature.jpg" alt="Third slide" class="mh-100"
+        style="width: 100%; height: 70vh">
+    </mdb-carousel-item>
+  </mdb-carousel>
+
   <mat-card class="landing-title-and-subtext">
     <mat-card-header>
       <mat-card-title>
         <h1 class="display-4">Koality Music</h1>
       </mat-card-title>
       <mat-card-subtitle>
-        <h3 class="subheading-2">Providing only the best <em>KOALITY</em> to publishers and customers</h3>
+        <h3 class="subheading-2">Providing only the best <em>koality</em> to publishers and customers</h3>
       </mat-card-subtitle>
     </mat-card-header>
   </mat-card>
+
   <table align="center">
     <tr>
       <td class="landing-table-padding"><button mat-raised-button color="primary" [routerLink]="[ '/login' ]">Login</button></td>
+      <td class="landing-table-padding"><img src="https://i.imgur.com/fBBkKUv.png" height="100px" width="100px">
       <td class="landing-table-padding"><button mat-raised-button color="accent" [routerLink]="[ '/register' ]">Register</button></td>
     </tr>
   </table>
 </div>
-
-<mdb-carousel [isControls]="false" [animation]="'slide'">
-  <mdb-carousel-item>
-    <img class="d-block w-100" src="http://hiresaudiocentral.com/wp-content/uploads/2017/09/EQUALIZER-GRAPHIC.jpg" alt="First slide">
-  </mdb-carousel-item>
-  <mdb-carousel-item>
-    <img class="d-block w-100" src="https://weareheights.com/wp-content/uploads/2018/01/music-stock.jpg" alt="Second slide">
-  </mdb-carousel-item>
-  <mdb-carousel-item>
-    <img class="d-block w-100" src="https://www.emergeinfluence.com/wp-content/uploads/emergeinfluence_uploadmusic.jpg"
-      alt="Third slide">
-  </mdb-carousel-item>
-</mdb-carousel>
