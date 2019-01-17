@@ -13,3 +13,15 @@ mat-form-field {
   width: 160px;
   margin: auto;
 }
+
+button {
+  background: -webkit-linear-gradient(
+    to bottom right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  );
+  background: linear-gradient(to bottom right, #2c5364, #203a43, #0f2027);
+  color: #c7c7c7;
+  border-radius: 30px;
+}

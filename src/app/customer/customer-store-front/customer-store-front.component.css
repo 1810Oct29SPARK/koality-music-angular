@@ -10,3 +10,10 @@ mat-card {
 .btn-view {
   min-width: 300px;
 }
+
+button {
+  background: -webkit-linear-gradient(to bottom right, #ad3b1e, #5e2461);
+  background: linear-gradient(to bottom right, #ad3b1e, #5e2461);
+  color: #c7c7c7;
+  border-radius: 30px;
+}
