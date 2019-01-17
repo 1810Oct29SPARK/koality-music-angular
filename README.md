@@ -27,7 +27,8 @@ The front-end project that serves as the presentation layer for the Koality Musi
 	4. Publish tracks
 	5. Create and release albums using published tracks
 	6. View their published tracks and albums
-	6. Read reviews on their music publication
+	7. View their statistics such as their sales number on tracks
+	8. Read reviews on their music publication
 
 * **Customer**
 	1. Registration
@@ -38,8 +39,8 @@ The front-end project that serves as the presentation layer for the Koality Musi
 	6. Use the Koality player to play and download purchased tracks
 	7. Purchase entire albums
 	8. Get music recommendations based on genre
-	8. Post reviews on purchased tracks and albums
-	9. Delete reviews
+	9. Post reviews on purchased tracks and albums
+	10. Delete reviews
 
 ## Future Features
 
