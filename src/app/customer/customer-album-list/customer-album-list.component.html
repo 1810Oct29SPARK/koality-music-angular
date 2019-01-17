@@ -1,0 +1,56 @@
+<section class="container">
+  <div style="text-align: center;">
+    <h3>Your Album Library</h3>
+  </div>
+  <div class="gap-60"></div>
+
+  <div *ngIf="albumList" class="row">
+    <div *ngFor="let album of albumList" class="col-lg-4 col-md-6 col-sm-12">
+      <mat-card>
+        <h4>{{album.albumName | titlecase}}</h4>
+        <img mat-card-image src="{{album.imageUrl}}">
+        <mat-card-content>
+          <h5><em>{{album.genre}}</em></h5>
+          <h5>${{album.unitPrice | number : '1.2-2'}}</h5>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="flex-row-space">
+            <button (click)="view(reviewContent, album)" mat-stroked-button color="primary">View Review</button>
+            <button (click)="post(postReview, album)" mat-stroked-button>Post Review</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <ng-template #reviewContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Review Content</h4>
+    </div>
+    <div *ngIf="albumReview" class="modal-body">
+      <h6><strong>{{albumReview.reviewContent.rating}}</strong></h6>
+      <hr>
+      <p>{{albumReview.reviewContent.reviewComment}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger" (click)="deleteReview()">Delete</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+  </ng-template>
+
+  <ng-template #postReview let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Post Review</h4>
+    </div>
+    <div class="modal-body">
+      <ngb-rating [(rate)]="currentRating"></ngb-rating>
+      <hr>
+      <textarea [(ngModel)]="currentComment" cols="40" rows="5"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-primary" (click)="sendReview()">Post</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+  </ng-template>
+
+</section>

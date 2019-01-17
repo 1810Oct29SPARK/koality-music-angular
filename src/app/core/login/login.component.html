@@ -1,0 +1,52 @@
+<section class="container">
+  <div style="height: 60px;"></div>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>whatshot</mat-icon>
+        <span style="display: inline-block; margin-left: 10px;">Publisher</span>
+      </ng-template>
+      <form (ngSubmit)="publisherLogin()" [formGroup]="publisherLoginForm" class="text-center border border-light p-5 login-form">
+        <p class="h4 mb-4">Login as publisher</p>
+        <input formControlName="username" type="text" class="form-control mb-4" placeholder="Username">
+        <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
+        <div class="d-flex justify-content-around">
+          <div>
+            <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
+          </div>
+        </div>
+        <button [disabled]="!publisherLoginForm.valid" mdbBtn color="primary" block="true" class="my-4" type="submit">Login</button>
+        <p>Not a member?
+          <button type="button" mdbBtn color="info" block="true" class="my-4" routerLink="/register">Register</button>
+        </p>
+      </form>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>spa</mat-icon>
+        <span style="display: inline-block; margin-left: 10px;">Customer</span>
+      </ng-template>
+      <form (ngSubmit)="customerLogin()" [formGroup]="customerLoginForm" class="text-center border border-light p-5 login-form">
+        <p class="h4 mb-4">Login as customer</p>
+        <input formControlName="username" type="text" class="form-control mb-4" placeholder="Username">
+        <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
+        <div class="d-flex justify-content-around">
+          <div>
+            <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
+          </div>
+        </div>
+        <button [disabled]="!customerLoginForm.valid" mdbBtn color="dark" block="true" class="my-4" type="submit">Login</button>
+        <p>Not a member?
+          <button type="button" mdbBtn color="info" block="true" class="my-4" routerLink="/register">Register</button>
+        </p>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+  <div class="flex-row-center">
+    <button mat-icon-button routerLink="../">
+      <mat-icon>undo</mat-icon>
+    </button>
+  </div>
+  <div class="gap-20"></div>
+</section>

@@ -1,0 +1,41 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" opened="true" mode="side">
+    <div class="flex-col-center">
+      <mat-toolbar id="sidnav2" class="content1">
+        <img *ngIf="imageUrl" class="avatar" [src]="imageUrl" width="64" height="64" alt="profile">
+      </mat-toolbar>
+      <h2 class="name"><span class="small-name">{{firstName | titlecase}}</span><span class="small-name">{{lastName |
+          titlecase}}</span></h2>
+      <h3 class="name2">Publisher</h3>
+    </div>
+    <mat-nav-list>
+      <i id="nav-div" class="material-icons" [routerLink]="[ 'dashboard' ]" mat-list-item href="" routerLinkActive="active">home</i>
+      <a class="content" [routerLink]="[ 'dashboard' ]" mat-list-item href="" routerLinkActive="active">Dashboard</a>
+      <i id="nav-div" class="material-icons" [routerLink]="[ 'profile-edit' ]" mat-list-item href="" routerLinkActive="active">person</i>
+      <a class="content" [routerLink]="[ 'profile-edit' ]" mat-list-item href="" routerLinkActive="active">Profile Edit</a>
+      <i id="nav-div" class="material-icons" [routerLink]="[ 'publish-track' ]" mat-list-item href="" routerLinkActive="active">audiotrack</i>
+      <a class="content" [routerLink]="[ 'publish-track' ]" mat-list-item href="" routerLinkActive="active">Publish
+        Track</a>
+      <i id="nav-div" class="material-icons" [routerLink]="[ 'publish-album' ]" mat-list-item href="" routerLinkActive="active">album</i>
+      <a class="content" [routerLink]="[ 'publish-album' ]" mat-list-item href="" routerLinkActive="active">Publish
+        Album</a>
+      <i id="nav-div" class="material-icons" [routerLink]="[ 'track-list' ]" mat-list-item href="" routerLinkActive="active">library_music</i>
+      <a class="content" [routerLink]="[ 'track-list' ]" mat-list-item href="" routerLinkActive="active">Track List</a>
+      <i id="nav-div" class="material-icons" [routerLink]="[ 'album-list' ]" mat-list-item href="" routerLinkActive="active">queue_music</i>
+      <a class="content" [routerLink]="[ 'album-list' ]" mat-list-item href="" routerLinkActive="active">Album List</a>
+      <i id="nav-div" class="material-icons" [routerLink]="[ 'subscribers' ]" mat-list-item href="" routerLinkActive="active">subscriptions</i>
+      <a class="content" [routerLink]="[ 'subscribers' ]" mat-list-item href="" routerLinkActive="active">Subscribers</a>
+      <div class="logout">
+        <i id="nav-div" class="material-icons" mat-list-item href="" routerLinkActive="active">power_settings_new</i>
+        <a (click)="logoutPublisher()" class="content" mat-list-item routerLinkActive="active">Logout</a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="gap-60"></div>
+    <router-outlet></router-outlet>
+    <div class="gap-60"></div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

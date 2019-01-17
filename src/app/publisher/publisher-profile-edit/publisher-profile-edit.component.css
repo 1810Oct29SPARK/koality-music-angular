@@ -1,0 +1,15 @@
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+mat-form-field {
+  min-width: 500px;
+}
+
+.btn-edit {
+  display: inline-block;
+  width: 160px;
+  margin: auto;
+}

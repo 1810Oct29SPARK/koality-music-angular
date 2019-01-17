@@ -1,0 +1,39 @@
+header {
+  background-image: url("https://images2.alphacoders.com/701/thumb-1920-70172.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+}
+
+h1 {
+  font-size: 70px;
+  font-family: "Coiny", Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-size: 30px;
+}
+
+.button {
+  width: 180px;
+  font-size: 22px;
+  text-decoration: none;
+  color: lightblue;
+  border: lightblue 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.button:hover {
+  background: lightblue;
+  color: #fff;
+}

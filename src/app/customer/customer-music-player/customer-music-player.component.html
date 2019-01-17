@@ -1,0 +1,75 @@
+<section class="container">
+  <h3 style="text-align: center;">Koality Music Player</h3>
+  <div class="gap-60"></div>
+  <div>
+    <mat-list>
+      <h3 mat-subheader style="font-size: 20px;">Track Detail</h3>
+      <mat-list-item>
+        <mat-icon mat-list-icon>music_video</mat-icon>
+        <h4 mat-line><strong>Track Name: {{selectedTrack.trackName}}</strong></h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Genre: {{selectedTrack.genre}}</h5>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Composer: {{selectedTrack.composer}}</h5>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Artist: {{selectedTrack.artist}}</h5>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>details</mat-icon>
+        <h5 mat-line>Length: {{selectedTrack.trackLength}}</h5>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <br>
+  <h3 class="gap-60" *ngIf="!playingTrack" style="text-align: center;">Loading...</h3>
+  <div *ngIf="!playingTrack" class="flex-row-center">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="playingTrack" class="flex-row-center">
+    <audio controls [src]="playingTrack.audioUrl"></audio>
+  </div>
+  <br>
+
+  <div class="gap-60"></div>
+
+  <div class="flex-row-space">
+    <button (click)="view(reviewContent)" type="button" class="btn btn-outline-primary">View Review</button>
+    <button (click)="post(postReview)" type="button" class="btn btn-outline-success">Post Review</button>
+  </div>
+
+  <ng-template #reviewContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Review Content</h4>
+    </div>
+    <div *ngIf="trackReview" class="modal-body">
+      <h6><strong>{{trackReview.reviewContent.rating}}</strong></h6>
+      <hr>
+      <p>{{trackReview.reviewContent.reviewComment}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger" (click)="deleteReview()">Delete</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+  </ng-template>
+
+  <ng-template #postReview let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Post Review</h4>
+    </div>
+    <div class="modal-body">
+      <ngb-rating [(rate)]="currentRating"></ngb-rating>
+      <hr>
+      <textarea [(ngModel)]="currentComment" cols="40" rows="5"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-primary" (click)="sendReview()">Post</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+  </ng-template>
+</section>

@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h3 style="text-align: center;">Publish Track</h3>
+      <br>
+      <form [formGroup]="publishTrackForm" (ngSubmit)="publishTrack()">
+        <div class="form-group">
+          <label>Track name</label>
+          <input type="text" formControlName="trackName" class="form-control" />
+          <div class="alert alert-danger" *ngIf="publishFormControls.trackName.touched && publishFormControls.trackName.errors">
+            <div *ngIf="publishFormControls.trackName.errors.required">Track name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Genre</label>
+          <select formControlName="genre" class="form-control">
+            <option value="" selected>Choose a genre</option>
+            <option *ngFor="let genre of musicGenres" [value]="genre">
+              {{genre}}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="publishFormControls.genre.touched && publishFormControls.genre.errors">
+            <div *ngIf="publishFormControls.genre.errors.required">Genre is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Composer</label>
+          <input type="text" formControlName="composer" class="form-control" />
+          <div class="alert alert-danger" *ngIf="publishFormControls.composer.touched && publishFormControls.composer.errors">
+            <div *ngIf="publishFormControls.composer.errors.required">Composer is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Artist</label>
+          <input type="text" formControlName="artist" class="form-control" />
+          <div class="alert alert-danger" *ngIf="publishFormControls.artist.touched && publishFormControls.artist.errors">
+            <div *ngIf="publishFormControls.artist.errors.required">Artist is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Track length</label>
+          <input type="number" formControlName="trackLength" class="form-control" />
+          <div class="alert alert-danger" *ngIf="publishFormControls.trackLength.touched && publishFormControls.trackLength.errors">
+            <div *ngIf="publishFormControls.trackLength.errors.required">Track length is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Unit price</label>
+          <input type="number" step="0.01" formControlName="unitPrice" class="form-control" />
+          <div class="alert alert-danger" *ngIf="publishFormControls.unitPrice.touched && publishFormControls.unitPrice.errors">
+            <div *ngIf="publishFormControls.unitPrice.errors.required">Unit price is required</div>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="custom-file">
+            <label style="text-align: left;" class="custom-file-label">{{audioName}}</label>
+            <input (change)="loadAudioUrl($event)" formControlName="audio" type="file" class="custom-file-input">
+          </div>
+        </div>
+        <br>
+        <div class="flex-row-center">
+          <button type="submit" class="btn-publish" mat-flat-button [disabled]="!publishTrackForm.valid" color="primary">Publish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
