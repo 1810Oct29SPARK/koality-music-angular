@@ -12,6 +12,15 @@ body {
   border-radius: 50%;
 }
 
+.small-name {
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
+}
+
+.name2 {
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
 .flex-row-center {
   display: flex;
   flex-direction: row;

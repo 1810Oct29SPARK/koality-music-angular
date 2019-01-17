@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { MatSnackBar } from '@angular/material';
+
 import { AlbumService } from '../../core/services/album.service';
 import { TrackService } from 'src/app/core/services/track.service';
 
@@ -29,7 +31,9 @@ export class PublisherPublishAlbumComponent implements OnInit {
   constructor(public formBuilder: FormBuilder,
     public router: Router,
     public albumService: AlbumService,
-    public trackService: TrackService) {
+    public trackService: TrackService,
+    public snackBar: MatSnackBar
+  ) {
 
     this.publishAlbumForm = this.formBuilder.group({
       albumName: ['', Validators.required],
@@ -80,10 +84,14 @@ export class PublisherPublishAlbumComponent implements OnInit {
       requestObj['trackIdList'] = this.createList;
       this.albumService.publishAlbum(requestObj)
         .subscribe((response) => {
-          console.log(response);
+          this.openSnackBar('Album published', 'Close', 3000);
           this.router.navigate(['/publisher/dashboard']);
         });
     }
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }

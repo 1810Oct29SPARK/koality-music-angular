@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { GlobalVars } from '../../shared/global-vars';
 
 import { TrackService } from '../../core/services/track.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-publisher-publish-track',
@@ -21,7 +22,11 @@ export class PublisherPublishTrackComponent implements OnInit {
   audioType: string;
   audioUrl: string;
 
-  constructor(public formBuilder: FormBuilder, public trackService: TrackService, public router: Router) {
+  constructor(public formBuilder: FormBuilder,
+    public trackService: TrackService,
+    public router: Router,
+    public snackBar: MatSnackBar
+  ) {
 
     this.publishTrackForm = this.formBuilder.group({
       trackName: ['', Validators.required],
@@ -57,9 +62,13 @@ export class PublisherPublishTrackComponent implements OnInit {
     requestObj['audioData'] = this.audioUrl;
     this.trackService.publishTrack(requestObj)
       .subscribe(response => {
-        console.log(response);
+        this.openSnackBar('Track published', 'Close', 3000);
         this.router.navigate(['/publisher/dashboard']);
       });
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }

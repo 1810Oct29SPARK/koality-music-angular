@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from '@angular/material';
 
 import { AlbumService } from '../../core/services/album.service';
 import { ReviewService } from '../../core/services/review.service';
@@ -26,6 +27,7 @@ export class CustomerAlbumListComponent implements OnInit {
   constructor(
     public router: Router,
     public modalService: NgbModal,
+    public snackBar: MatSnackBar,
     public albumService: AlbumService,
     public reviewService: ReviewService
   ) { }
@@ -59,6 +61,7 @@ export class CustomerAlbumListComponent implements OnInit {
       .subscribe(() => {
         setTimeout(() => {
           this.modalService.dismissAll();
+          this.openSnackBar('Review deleted', 'Close', 2000);
           this.router.navigate(['/customer/album-list']);
         }, 1000);
       });
@@ -76,11 +79,16 @@ export class CustomerAlbumListComponent implements OnInit {
           .subscribe(() => {
             setTimeout(() => {
               this.modalService.dismissAll();
+              this.openSnackBar('Review sent', 'Close', 2000);
               this.router.navigate(['/customer/album-list']);
             }, 1000);
           });
       }
     }
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }

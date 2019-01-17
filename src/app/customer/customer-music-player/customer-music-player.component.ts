@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from '@angular/material';
 
 import { Track } from '../../shared/models/track';
 import { TrackReview } from 'src/app/shared/models/track-review';
@@ -26,7 +27,9 @@ export class CustomerMusicPlayerComponent implements OnInit {
   constructor(public router: Router,
     public trackService: TrackService,
     public reviewService: ReviewService,
-    public modalService: NgbModal) { }
+    public modalService: NgbModal,
+    public snackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
     this.selectedTrack = this.trackService.selectedTrack;
@@ -57,6 +60,7 @@ export class CustomerMusicPlayerComponent implements OnInit {
       .subscribe(() => {
         setTimeout(() => {
           this.modalService.dismissAll();
+          this.openSnackBar('Review deleted', 'Close', 2000);
           this.router.navigate(['/customer/track-list']);
         }, 500);
       });
@@ -73,10 +77,15 @@ export class CustomerMusicPlayerComponent implements OnInit {
         .subscribe(() => {
           setTimeout(() => {
             this.modalService.dismissAll();
+            this.openSnackBar('Review sent', 'Close', 2000);
             this.router.navigate(['/customer/track-list']);
           }, 1000);
         });
     }
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }

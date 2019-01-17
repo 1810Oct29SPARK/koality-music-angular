@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
+
+import { MatPaginator, MatTableDataSource, MatSnackBar } from '@angular/material';
 
 import { Track } from '../../shared/models/track';
 
@@ -28,7 +29,7 @@ export class CustomerStoreTracksComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
-  constructor(public trackService: TrackService, public router: Router) { }
+  constructor(public trackService: TrackService, public router: Router, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.trackService.getAllAvailableTracks()
@@ -56,8 +57,13 @@ export class CustomerStoreTracksComponent implements OnInit {
         });
     });
     setTimeout(() => {
+      this.openSnackBar('Purchase complete', 'Close', 3000);
       this.router.navigate(['/customer/track-list']);
     }, 2000);
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }

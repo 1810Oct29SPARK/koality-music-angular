@@ -1,7 +1,4 @@
 .active {
-  color: #880e4f;
-}
-.active {
   color: white;
 }
 
@@ -11,7 +8,8 @@
 
 .sidenav {
   width: 200px;
-  background-color: #880e4f;
+  background: -webkit-linear-gradient(to bottom, #ad3b1e, #5e2461);
+  background: linear-gradient(to bottom, #ad3b1e, #5e2461);
 }
 
 .sidenav .mat-toolbar {
@@ -30,18 +28,15 @@
 }
 
 mat-toolbar {
-  background-color: black;
   top: 15%;
 }
 
 mat-nav-list {
-  background-color: #880e4f;
   color: #c7c7c7;
   height: 60%;
 }
 
 mat-sidnav {
-  background-color: #880e4f;
   color: #c7c7c7;
 }
 
@@ -50,20 +45,13 @@ mat-list-item {
 }
 
 .content {
-  background-color: #880e4f;
   color: #c7c7c7;
 }
 
 .content1 {
-  background-color: #880e4f;
   color: #ffffff;
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
   font-size: 2.5em;
-}
-
-mat-toolbar {
-  background-color: #880e4f;
 }
 
 mat-drawer-inner-container {
@@ -74,7 +62,6 @@ mat-drawer-inner-container {
 #sidnav2 {
   height: 20%;
   display: block;
-  margin-bottom: 20px;
 }
 
 #top-nav {
@@ -89,16 +76,13 @@ mat-drawer-inner-container {
 .name {
   color: white;
   text-align: center;
-  font-size: 32px;
-  margin-top: -30%;
-  font-family: "oxygen";
+  font-size: 30px;
 }
 
 .name2 {
   color: white;
   text-align: center;
-  font-size: 24px;
-  font-family: "oxygen";
+  font-size: 22px;
 }
 
 .small-name {

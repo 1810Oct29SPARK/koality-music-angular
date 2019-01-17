@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from '@angular/material';
 
 import { AlbumService } from '../../core/services/album.service';
 
@@ -19,7 +20,10 @@ export class CustomerStoreAlbumsComponent implements OnInit {
   selectedAlbum: Album = null;
   trackList: Track[] = null;
 
-  constructor(public modalService: NgbModal, public router: Router, public albumService: AlbumService) { }
+  constructor(public modalService: NgbModal,
+    public snackBar: MatSnackBar,
+    public router: Router,
+    public albumService: AlbumService) { }
 
   ngOnInit() {
     this.albumService.getAllAvailableAlbums()
@@ -46,9 +50,14 @@ export class CustomerStoreAlbumsComponent implements OnInit {
     this.albumService.purchaseAlbum(requestObj)
       .subscribe(response => {
         setTimeout(() => {
+          this.openSnackBar('Purchase complete', 'Close', 3000);
           this.router.navigate(['/customer/store-front']);
         }, 1000);
       });
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }

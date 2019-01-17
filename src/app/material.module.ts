@@ -21,6 +21,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
+  MatSnackBarModule,
   MatButtonToggleGroup,
   MatButtonToggle,
   MatSlideToggle,
@@ -58,6 +59,7 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -75,6 +77,7 @@ import {
     MatTabsModule,
     MatGridListModule,
     MatTableModule,
+    MatSnackBarModule,
     MatButtonToggleGroup,
     MatButtonToggle,
     MatSlideToggle,

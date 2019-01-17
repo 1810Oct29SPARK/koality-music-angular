@@ -23,11 +23,9 @@ export class CustomerStoreFrontComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           this.albumList = response;
+          this.loaded = true;
         }
       });
-    setTimeout(() => {
-      this.loaded = true;
-    }, 1000);
   }
 
 }

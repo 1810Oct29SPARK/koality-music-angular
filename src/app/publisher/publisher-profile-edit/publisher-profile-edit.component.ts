@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../core/services/auth.service';
 
+import { MatSnackBar } from '@angular/material';
+
 @Component({
   selector: 'app-publisher-profile-edit',
   templateUrl: './publisher-profile-edit.component.html',
@@ -19,7 +21,11 @@ export class PublisherProfileEditComponent implements OnInit {
   imageType: string = null;
   imageUrl: string = null;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService, public router: Router) {
+  constructor(public formBuilder: FormBuilder,
+    public authService: AuthService,
+    public router: Router,
+    public snackBar: MatSnackBar
+  ) {
 
     this.updateInfoForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -62,6 +68,7 @@ export class PublisherProfileEditComponent implements OnInit {
   updateBasicInfo() {
     console.log(this.updateInfoForm.value);
     this.authService.updatePublisherInfomation(this.updateInfoForm.value).subscribe(response => {
+      this.openSnackBar('Profile updated', 'Close', 3000);
       this.router.navigate(['/publisher/dashboard']);
     });
   }
@@ -73,12 +80,17 @@ export class PublisherProfileEditComponent implements OnInit {
     image['imageData'] = this.imageUrl;
     this.authService.uploadPublisherImage(image)
       .subscribe(() => {
+        this.openSnackBar('Image uploaded', 'Close', 3000);
         this.router.navigate(['/publisher/dashboard']);
       });
   }
 
   updateCredentials() {
     console.log(this.updateCredentialsForm.value);
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }

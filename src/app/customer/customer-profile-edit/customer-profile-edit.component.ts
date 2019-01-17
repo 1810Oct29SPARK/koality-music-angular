@@ -6,6 +6,8 @@ import { AuthService } from '../../core/services/auth.service';
 
 import { GlobalVars } from '../../shared/global-vars';
 
+import { MatSnackBar } from '@angular/material';
+
 @Component({
   selector: 'app-customer-profile-edit',
   templateUrl: './customer-profile-edit.component.html',
@@ -23,7 +25,11 @@ export class CustomerProfileEditComponent implements OnInit {
   imageType: string = null;
   imageUrl: string = null;
 
-  constructor(public formBuilder: FormBuilder, public authService: AuthService, public router: Router) {
+  constructor(public formBuilder: FormBuilder,
+    public authService: AuthService,
+    public snackBar: MatSnackBar,
+    public router: Router
+  ) {
 
     this.updateInfoForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -66,6 +72,7 @@ export class CustomerProfileEditComponent implements OnInit {
     console.log(this.updateInfoForm.value);
     this.authService.updateCustomerInformation(this.updateInfoForm.value)
       .subscribe(() => {
+        this.openSnackBar('Profile updated', 'Close', 3000);
         this.router.navigate(['/customer/dashboard']);
       });
   }
@@ -77,6 +84,7 @@ export class CustomerProfileEditComponent implements OnInit {
     image['imageData'] = this.imageUrl;
     this.authService.uploadCustomerImage(image)
       .subscribe(() => {
+        this.openSnackBar('Image uploaded', 'Close', 3000);
         this.router.navigate(['/customer/dashboard']);
       });
   }
@@ -84,6 +92,10 @@ export class CustomerProfileEditComponent implements OnInit {
   updateCredentials() {
     console.log('publisher credentials uploaded');
     console.log(this.updateCredentialsForm.value);
+  }
+
+  openSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
   }
 
 }
