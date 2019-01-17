@@ -15,6 +15,7 @@ import { CustomerPlaylistDetailComponent } from './customer-playlist-detail/cust
 
 import { AuthGuard } from '../core/guards/auth.guard';
 import { PlayerGuard } from '../core/guards/player.guard';
+import { ForbidGuard } from '../core/guards/forbid.guard';
 
 const routes: Routes = [
   {
@@ -30,8 +31,8 @@ const routes: Routes = [
           { path: 'store-album', component: CustomerStoreAlbumsComponent },
           { path: 'track-list', component: CustomerTrackListComponent },
           { path: 'album-list', component: CustomerAlbumListComponent },
-          { path: 'playlist-list', component: CustomerPlaylistListComponent },
-          { path: 'playlist-detail', component: CustomerPlaylistDetailComponent },
+          { path: 'playlist-list', component: CustomerPlaylistListComponent, canActivate: [ForbidGuard] },
+          { path: 'playlist-detail', component: CustomerPlaylistDetailComponent, canActivate: [ForbidGuard] },
           { path: 'music-player', component: CustomerMusicPlayerComponent, canActivate: [PlayerGuard] },
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ]

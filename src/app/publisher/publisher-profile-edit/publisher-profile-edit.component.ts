@@ -66,6 +66,9 @@ export class PublisherProfileEditComponent implements OnInit {
   }
 
   updateBasicInfo() {
+    if (this.updateInfoForm.invalid) {
+      return;
+    }
     console.log(this.updateInfoForm.value);
     this.authService.updatePublisherInfomation(this.updateInfoForm.value).subscribe(response => {
       this.openSnackBar('Profile updated', 'Close', 3000);
@@ -74,6 +77,9 @@ export class PublisherProfileEditComponent implements OnInit {
   }
 
   updateProfileImage() {
+    if (this.uploadImageForm.invalid) {
+      return;
+    }
     console.log(this.uploadImageForm.value);
     const image = {};
     image['imageType'] = this.imageType;

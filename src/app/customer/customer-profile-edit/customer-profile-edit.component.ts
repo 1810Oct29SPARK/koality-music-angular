@@ -69,6 +69,9 @@ export class CustomerProfileEditComponent implements OnInit {
   }
 
   updateBasicInfo() {
+    if (this.updateInfoForm.invalid) {
+      return;
+    }
     console.log(this.updateInfoForm.value);
     this.authService.updateCustomerInformation(this.updateInfoForm.value)
       .subscribe(() => {
@@ -78,6 +81,9 @@ export class CustomerProfileEditComponent implements OnInit {
   }
 
   updateProfileImage() {
+    if (this.uploadImageForm.invalid) {
+      return;
+    }
     console.log(this.uploadImageForm.value);
     const image = {};
     image['imageType'] = this.imageType;

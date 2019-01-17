@@ -13,6 +13,7 @@ import { PublisherTrackReviewsComponent } from './publisher-track-reviews/publis
 import { PublisherAlbumReviewsComponent } from './publisher-album-reviews/publisher-album-reviews.component';
 
 import { AuthGuard } from '../core/guards/auth.guard';
+import { ForbidGuard } from '../core/guards/forbid.guard';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
           { path: 'track-reviews', component: PublisherTrackReviewsComponent },
           { path: 'album-list', component: PublisherAlbumListComponent },
           { path: 'album-reviews', component: PublisherAlbumReviewsComponent },
-          { path: 'subscribers', component: PublisherSubscribersComponent },
+          { path: 'subscribers', component: PublisherSubscribersComponent, canActivate: [ForbidGuard] },
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ]
       }
