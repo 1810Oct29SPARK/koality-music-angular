@@ -11,7 +11,8 @@ import { Customer } from '../../shared/models/customer';
 })
 export class AuthService {
 
-  public static baseUrl = 'http://localhost:8080/koality-music-java/';
+  // public static baseUrl = 'http://localhost:8080/koality-music-java/';
+  public static baseUrl = 'http://ec2-18-218-61-211.us-east-2.compute.amazonaws.com:8080/koality-music-java/';
 
   public currentPublisherId = 0;
   public currentCustomerId = 0;
